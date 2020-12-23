@@ -43,6 +43,27 @@ class FixtureRepository implements FixtureRepositoryInterface
     }
 
     /**
+     * @param  array  $fixture
+     * @param  int  $weekCount
+     *
+     * @return array
+     */
+    public function generateSecondHalf(array $fixture, int $weekCount): array
+    {
+        $secondHalf = [];
+        foreach ($fixture as $match)
+        {
+            $secondHalf[] = [
+                'home_club_id' => $match['away_club_id'],
+                'away_club_id' => $match['home_club_id'],
+                'week' => $match['week'] + $weekCount
+            ];
+        }
+
+        return array_merge($fixture, $secondHalf);
+    }
+
+    /**
      * @param  array  $fixtures
      *
      * @return void

@@ -30,7 +30,7 @@ class FixtureTest extends TestCase
 
         $response->assertStatus(201);
         $this->assertDatabaseCount('clubs', 4);
-        $this->assertDatabaseCount('fixtures', 6);
+        $this->assertDatabaseCount('fixtures', 12);
     }
 
     /** @test */

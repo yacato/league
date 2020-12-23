@@ -40,6 +40,8 @@ class FixtureService
             $fixture = $fixture->merge($this->fixtureRepository->generateWeekFixture($weekNumber, $clubs, $fixture));
         }
 
-        $this->fixtureRepository->insert($fixture->toArray());
+        $this->fixtureRepository->insert(
+            $this->fixtureRepository->generateSecondHalf($fixture->toArray(), $weekCount)
+        );
     }
 }
