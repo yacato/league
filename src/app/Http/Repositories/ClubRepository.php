@@ -53,6 +53,9 @@ class ClubRepository implements ClubRepositoryInterface
         return $this->club->factory()->count($count)->create();
     }
 
+    /**
+     * @return void
+     */
     public function deleteAll(): void
     {
         $this->club->whereNotNull('id')->delete();
@@ -62,7 +65,7 @@ class ClubRepository implements ClubRepositoryInterface
      * @param  Club  $club
      * @param  array  $scoreAndPoint
      *
-     * @return bool
+     * @return void
      */
     public function updateGoalAndPoint(Club $club, array $scoreAndPoint): void
     {
