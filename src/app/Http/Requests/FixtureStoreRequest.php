@@ -4,6 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class FixtureStoreRequest
+ * @package App\Http\Requests
+ */
 class FixtureStoreRequest extends FormRequest
 {
     /**

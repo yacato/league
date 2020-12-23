@@ -6,6 +6,10 @@ use App\Models\Club;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Support\Collection;
 
+/**
+ * Interface ClubRepositoryInterface
+ * @package App\Http\Interfaces
+ */
 interface ClubRepositoryInterface
 {
     /**

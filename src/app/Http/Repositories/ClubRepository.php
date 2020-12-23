@@ -7,6 +7,10 @@ use App\Models\Club;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Support\Collection;
 
+/**
+ * Class ClubRepository
+ * @package App\Http\Repositories
+ */
 class ClubRepository implements ClubRepositoryInterface
 {
     public Club $club;

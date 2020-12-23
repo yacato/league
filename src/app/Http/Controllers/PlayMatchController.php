@@ -8,6 +8,10 @@ use App\Http\Services\PlayMatchService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * Class PlayMatchController
+ * @package App\Http\Controllers
+ */
 class PlayMatchController extends Controller
 {
 

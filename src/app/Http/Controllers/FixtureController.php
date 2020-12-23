@@ -8,6 +8,10 @@ use App\Http\Services\FixtureService;
 use Illuminate\Support\Collection;
 use Illuminate\Http\JsonResponse;
 
+/**
+ * Class FixtureController
+ * @package App\Http\Controllers
+ */
 class FixtureController extends Controller
 {
     public FixtureService $fixtureService;

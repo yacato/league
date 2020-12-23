@@ -6,6 +6,10 @@ use App\Models\Fixture;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Support\Collection;
 
+/**
+ * Interface FixtureRepositoryInterface
+ * @package App\Http\Interfaces
+ */
 interface FixtureRepositoryInterface
 {
     /**

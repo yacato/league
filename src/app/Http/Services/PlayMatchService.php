@@ -6,6 +6,10 @@ use App\Http\Interfaces\ClubRepositoryInterface;
 use App\Http\Interfaces\FixtureRepositoryInterface;
 use App\Models\Fixture;
 
+/**
+ * Class PlayMatchService
+ * @package App\Http\Services
+ */
 class PlayMatchService
 {
     public FixtureRepositoryInterface $fixtureRepository;
@@ -25,11 +29,12 @@ class PlayMatchService
         $this->clubRepository = $clubRepository;
     }
 
-    public function playAll()
+    /**
+     * @return void
+     */
+    public function playAll(): void
     {
-        $weeks = $this->fixtureRepository->unPlayedWeeks();
-
-        foreach ($weeks as $weekNumber) {
+        foreach ($this->fixtureRepository->unPlayedWeeks() as $weekNumber) {
             $this->weekly($weekNumber);
         }
     }

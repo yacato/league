@@ -6,6 +6,10 @@ use App\Http\Interfaces\ClubRepositoryInterface;
 use App\Http\Interfaces\FixtureRepositoryInterface;
 use Illuminate\Http\Request;
 
+/**
+ * Class FixtureService
+ * @package App\Http\Services
+ */
 class FixtureService
 {
     public FixtureRepositoryInterface $fixtureRepository;
