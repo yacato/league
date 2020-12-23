@@ -11,6 +11,9 @@
     <pharConfigPath>$PROJECT_DIR$/src/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/src/vendor/symfony/event-dispatcher" />
@@ -122,6 +125,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1m2lyTHxZTXQA8sNg3m0VlTM5N8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -155,10 +159,22 @@
       <workItem from="1608701671424" duration="136000" />
       <workItem from="1608702168914" duration="519000" />
       <workItem from="1608704020755" duration="30000" />
+      <workItem from="1608704095388" duration="707000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
