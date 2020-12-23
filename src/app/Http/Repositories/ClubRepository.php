@@ -46,4 +46,19 @@ class ClubRepository implements ClubRepositoryInterface
     {
         $this->club->whereNotNull('id')->delete();
     }
+
+    /**
+     * @param  Club  $club
+     * @param  array  $scoreAndPoint
+     *
+     * @return bool
+     */
+    public function updateGoalAndPoint(Club $club, array $scoreAndPoint): void
+    {
+        $club->update([
+            'goals_for' => $club->goals_for + $scoreAndPoint['goals_for'],
+            'goals_against' => $club->goals_against + $scoreAndPoint['goals_against'],
+            'points' => $club->points + $scoreAndPoint['points'],
+        ]);
+    }
 }

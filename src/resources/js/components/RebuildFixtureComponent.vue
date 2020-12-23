@@ -1,23 +1,8 @@
 <template>
     <div class="col-lg-2 col-xs-12">
         <form v-on:submit.prevent="regenerateFixture">
-            <div class="input-group mb-3">
-                <select
-                    v-model="form.clubCount"
-                    class="form-control form-select"
-                    aria-label="Team Count"
-                    aria-describedby="button-rebuild"
-                >
-                    <option selected value="4">4</option>
-                    <option value="8">8</option>
-                    <option value="12">12</option>
-                    <option value="18">18</option>
-                    <option value="20">20</option>
-                </select>
-                <button
-                    class="btn btn-outline-success"
-                    id="button-rebuild"
-                >
+            <div class="mb-3">
+                <button class="btn btn-outline-success" id="button-rebuild">
                     Rebuild
                 </button>
             </div>

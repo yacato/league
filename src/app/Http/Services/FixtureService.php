@@ -5,6 +5,7 @@ namespace App\Http\Services;
 use App\Http\Interfaces\ClubRepositoryInterface;
 use App\Http\Interfaces\FixtureRepositoryInterface;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class FixtureService
 {
@@ -17,18 +18,20 @@ class FixtureService
      * @param  FixtureRepositoryInterface  $fixtureRepository
      * @param  ClubRepositoryInterface  $clubRepository
      */
-    public function __construct(FixtureRepositoryInterface $fixtureRepository, ClubRepositoryInterface $clubRepository)
-    {
+    public function __construct(
+        FixtureRepositoryInterface $fixtureRepository,
+        ClubRepositoryInterface $clubRepository
+    ) {
         $this->fixtureRepository = $fixtureRepository;
         $this->clubRepository = $clubRepository;
     }
 
     /**
-     * @param $request
+     * @param  Request  $request
      *
-     * @return JsonResponse
+     * @return void
      */
-    public function generateFixture($request): JsonResponse
+    public function generateFixture(Request $request): void
     {
         $clubs = $this->clubRepository->regenerateClubs($request->clubCount);
         $fixture = collect();
@@ -39,7 +42,5 @@ class FixtureService
         }
 
         $this->fixtureRepository->insert($fixture->toArray());
-
-        return response()->json([], 201);
     }
 }

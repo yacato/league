@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FixtureController;
+use App\Http\Controllers\PlayMatchController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,4 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/fixtures', \App\Http\Controllers\FixtureController::class);
+Route::resource('/fixtures', FixtureController::class);
+Route::post('/play-matches/weekly', [PlayMatchController::class, 'weekly']);
+Route::post('/play-matches/all', [PlayMatchController::class, 'all']);

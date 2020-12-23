@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Interfaces\FixtureRepositoryInterface;
 use App\Http\Requests\FixtureStoreRequest;
 use App\Http\Services\FixtureService;
-use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
+use Illuminate\Http\JsonResponse;
 
 class FixtureController extends Controller
 {
@@ -27,9 +28,9 @@ class FixtureController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Collection
      */
-    public function index()
+    public function index(): Collection
     {
         return $this->fixtureRepository->index();
     }
@@ -37,11 +38,14 @@ class FixtureController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  FixtureStoreRequest $request
-     * @return Response
+     * @param  FixtureStoreRequest  $request
+     *
+     * @return JsonResponse
      */
-    public function store(FixtureStoreRequest $request)
+    public function store(FixtureStoreRequest $request): JsonResponse
     {
-        return $this->fixtureService->generateFixture($request);
+        $this->fixtureService->generateFixture($request);
+
+        return response()->json([], 201);
     }
 }

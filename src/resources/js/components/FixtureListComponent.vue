@@ -5,8 +5,8 @@
                 <div class="card-header">
                     <h5 class="my-0 fw-normal">
                         Round {{ weekNumber }}
-                        <button v-if="activeWeek == weekNumber" type="button" class="btn btn-outline-primary float-right btn-sm ml-10">Play All</button>
-                        <button v-if="activeWeek == weekNumber" type="button" class="btn btn-outline-success float-right btn-sm">Play</button>
+                        <button v-if="activeWeek == weekNumber" v-on:click="playAll()" type="button" class="btn btn-outline-primary float-right btn-sm ml-10">Play All</button>
+                        <button v-if="activeWeek == weekNumber" v-on:click="playWeekly(weekNumber)" type="button" class="btn btn-outline-success float-right btn-sm">Play</button>
                     </h5>
                 </div>
                 <div class="card-body">
@@ -50,6 +50,26 @@ export default {
                 .then(response => {
                     this.groupFixture(response.data)
                 })
+        },
+        playWeekly(week) {
+            axios
+                .post('/api/play-matches/weekly', {'week': week})
+                .then((res) => {
+                    this.$root.$emit('FixtureListComponent')
+                })
+                .catch((error) => {
+
+                });
+        },
+        playAll() {
+            axios
+                .post('/api/play-matches/all', {})
+                .then((res) => {
+                    this.$root.$emit('FixtureListComponent')
+                })
+                .catch((error) => {
+
+                });
         },
         groupFixture(items) {
             var groupFixture = {}

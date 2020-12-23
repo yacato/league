@@ -33,6 +33,16 @@ class FixtureRepository implements FixtureRepositoryInterface
     }
 
     /**
+     * @param  int  $week
+     *
+     * @return EloquentCollection
+     */
+    public function weeklyFixture(int $week): EloquentCollection
+    {
+        return $this->fixture->whereWeek($week)->with(['homeClub', 'awayClub'])->get();
+    }
+
+    /**
      * @param  array  $fixtures
      *
      * @return void
@@ -40,6 +50,17 @@ class FixtureRepository implements FixtureRepositoryInterface
     public function insert(array $fixtures): void
     {
         $this->fixture->insert($fixtures);
+    }
+
+    /**
+     * @param  Fixture  $fixture
+     * @param $result
+     *
+     * @return bool
+     */
+    public function updateFixture(Fixture $fixture, $result): bool
+    {
+        return $fixture->update($result);
     }
 
     /**
@@ -67,6 +88,31 @@ class FixtureRepository implements FixtureRepositoryInterface
         }
 
         return $weekFixture;
+    }
+
+    /**
+     * @param  int  $week
+     *
+     * @return bool
+     */
+    public function isWeekValidForPlay(int $week): bool
+    {
+        $result = $this->fixture->where(function($query) use ($week) {
+            $query->where('week', $week)->whereNotNull('result');
+        })
+        ->orWhere(function($query) use ($week) {
+            $query->where('week', '<', $week)->whereNull('result');
+        })->get();
+
+        return $result->count() === 0;
+    }
+
+    /**
+     * @return array
+     */
+    public function unPlayedWeeks(): array
+    {
+        return array_unique($this->fixture->whereNull('result')->pluck('week')->all());
     }
 
     /**
