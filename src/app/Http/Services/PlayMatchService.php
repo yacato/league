@@ -45,16 +45,16 @@ class PlayMatchService
 
         foreach ($weeklyMatches as $match) {
             $result = $this->foundResult($match);
-            $scoreAntPoint = $this->generateScoreAndPoints($result);
+            $scoreAndPoint = $this->generateScoreAndPoints($result);
 
             $this->fixtureRepository->updateFixture($match, [
-                'home_club_goal' => $scoreAntPoint['home']['goals_for'],
-                'away_club_goal' => $scoreAntPoint['away']['goals_for'],
+                'home_club_goal' => $scoreAndPoint['home']['goals_for'],
+                'away_club_goal' => $scoreAndPoint['away']['goals_for'],
                 'result' => $result,
             ]);
 
-            $this->clubRepository->updateGoalAndPoint($match->homeClub, $scoreAntPoint['home']);
-            $this->clubRepository->updateGoalAndPoint($match->awayClub, $scoreAntPoint['away']);
+            $this->clubRepository->updateGoalAndPoint($match->homeClub, $scoreAndPoint['home']);
+            $this->clubRepository->updateGoalAndPoint($match->awayClub, $scoreAndPoint['away']);
         }
     }
 
