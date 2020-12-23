@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+  task_php-fpm:
+    build:
+      context: './src'
+    container_name: task_php-fpm
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./src:/var/www
+    networks:
+      - task
+    environment:
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+
+  task-mysql:
+    image: mysql:5.7
+    container_name: task_mysql
+    hostname: task_mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - task-mysql-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    networks:
+      - task
+
+  redis:
+    image: redis:5.0.5
+    container_name: task_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - task
+
+  task-nginx:
+    image: nginx:alpine
+    container_name: task_nginx
+    stdin_open: true
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./src:/var/www/
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - task
+
+volumes:
+  task-mysql-data:
+    external: true
+
+networks:
+  task:
+    driver: bridge
