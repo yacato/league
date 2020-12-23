@@ -10,27 +10,9 @@
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
+
             <div class="tab-pane fade show active" id="nav-standings" role="tabpanel" aria-labelledby="nav-contact-tab">
-                <div class="row row-cols-1 row-cols-md-12 mb-12 text-center">
-                    <div class="col">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">Team</th>
-                                <th scope="col">Goals</th>
-                                <th scope="col">Points</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>Mark</td>
-                                <td>10-5</td>
-                                <td>9</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <standings-component></standings-component>
             </div>
             <div class="tab-pane fade" id="nav-fixtures" role="tabpanel" aria-labelledby="nav-profile-tab">
                 <fixture-list-component></fixture-list-component>

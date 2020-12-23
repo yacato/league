@@ -30,7 +30,6 @@
 <script>
 export default {
     name: "FixtureListComponent",
-    props: ['name'],
     data () {
         return {
             fixture: [],
@@ -56,6 +55,7 @@ export default {
                 .post('/api/play-matches/weekly', {'week': week})
                 .then((res) => {
                     this.$root.$emit('FixtureListComponent')
+                    this.$root.$emit('StandingsComponent')
                 })
                 .catch((error) => {
 
@@ -66,6 +66,7 @@ export default {
                 .post('/api/play-matches/all', {})
                 .then((res) => {
                     this.$root.$emit('FixtureListComponent')
+                    this.$root.$emit('StandingsComponent')
                 })
                 .catch((error) => {
 

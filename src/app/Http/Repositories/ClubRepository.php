@@ -5,6 +5,7 @@ namespace App\Http\Repositories;
 use App\Http\Interfaces\ClubRepositoryInterface;
 use App\Models\Club;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
+use Illuminate\Support\Collection;
 
 class ClubRepository implements ClubRepositoryInterface
 {
@@ -18,6 +19,16 @@ class ClubRepository implements ClubRepositoryInterface
     public function __construct(Club $club)
     {
         $this->club = $club;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Collection
+     */
+    public function index(): Collection
+    {
+        return $this->club->orderBy('points', 'DESC')->orderByRaw('goals_for - goals_against DESC')->get();
     }
 
     /**

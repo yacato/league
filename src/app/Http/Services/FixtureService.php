@@ -4,7 +4,6 @@ namespace App\Http\Services;
 
 use App\Http\Interfaces\ClubRepositoryInterface;
 use App\Http\Interfaces\FixtureRepositoryInterface;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class FixtureService

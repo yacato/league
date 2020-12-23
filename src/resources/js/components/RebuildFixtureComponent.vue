@@ -26,6 +26,7 @@ export default {
                 .post('/api/fixtures', this.form)
                 .then((res) => {
                     this.$root.$emit('FixtureListComponent')
+                    this.$root.$emit('StandingsComponent')
                     console.log('success')
                 })
                 .catch((error) => {

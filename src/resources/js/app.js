@@ -17,6 +17,7 @@ window.Vue = require('vue');
  */
 Vue.component('fixture-list-component', require('./components/FixtureListComponent.vue').default);
 Vue.component('rebuild-fixture-component', require('./components/RebuildFixtureComponent.vue').default);
+Vue.component('standings-component', require('./components/StandingsComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

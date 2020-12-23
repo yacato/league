@@ -135,16 +135,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/app/Http/Interfaces" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources/js/components" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/resources/js/components" />
       <recent name="$PROJECT_DIR$/src/app/Http/Interfaces" />
       <recent name="$PROJECT_DIR$/src/app/Http/Repositories" />
-      <recent name="$PROJECT_DIR$/src/resources/js/components" />
       <recent name="$PROJECT_DIR$/src/public" />
       <recent name="$PROJECT_DIR$/src/resources/views" />
     </key>
@@ -166,7 +166,7 @@
       <workItem from="1608701671424" duration="136000" />
       <workItem from="1608702168914" duration="519000" />
       <workItem from="1608704020755" duration="30000" />
-      <workItem from="1608704095388" duration="26816000" />
+      <workItem from="1608704095388" duration="27922000" />
     </task>
     <servers />
   </component>

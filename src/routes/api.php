@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\FixtureController;
 use App\Http\Controllers\PlayMatchController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\StandingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/fixtures', FixtureController::class);
+Route::get('/standings', [StandingController::class, 'index']);
 Route::post('/play-matches/weekly', [PlayMatchController::class, 'weekly']);
 Route::post('/play-matches/all', [PlayMatchController::class, 'all']);
